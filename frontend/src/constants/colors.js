@@ -31,4 +31,5 @@ export const COLORS = {
   mainBackgroundDark: "#121212",
   cardBgDark: "#1E1E1E",
   white: "#FFFFFF",
+  activeGreenBg: "#F0F9F1",
 };
