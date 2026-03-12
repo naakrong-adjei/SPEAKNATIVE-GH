@@ -145,7 +145,6 @@ const styles = StyleSheet.create({
     flex:1,
     alignItems: "center",
     justifyContent: "center",
-    paddingTop: "20%",
     paddingHorizontal:20
   },
 
@@ -217,7 +216,7 @@ const styles = StyleSheet.create({
 
   langBtn: {
     position: "absolute",
-    top: 40,
+    top: "8%",
     right: 20,
     paddingVertical: 8,
     paddingHorizontal: 32,

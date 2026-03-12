@@ -5,6 +5,7 @@ import OnboardingScreen from "../screens/auth/OnboardingScreen";
 import LoginScreen from "../screens/auth/LoginScreen";
 import SignupScreen from "../screens/auth/SignupScreen";
 
+
 const Stack = createNativeStackNavigator();
 
 export default function AuthRoute() {

@@ -7,6 +7,7 @@ export const authStyles = StyleSheet.create({
     paddingHorizontal:25,
     justifyContent:"center",
     backgroundColor:COLORS.white,
+    position:"relative",
   },
 
   title:{
@@ -36,6 +37,7 @@ export const authStyles = StyleSheet.create({
     paddingHorizontal:15,
     marginBottom:15,
   },
+
   passwordRow:{
     flexDirection:"row",
     justifyContent:"space-between",
@@ -90,17 +92,23 @@ export const authStyles = StyleSheet.create({
     textAlign:"center",
     paddingTop:32
   },
+
   signupLink: {
     color: COLORS.primaryGreen,
     fontWeight: '500',
   },
 
-  errorText: {
+  errorText:{
     color: COLORS.error,
     fontSize: 14,
-    fontWeight:400,
-    marginTop: 8,
-    marginBottom: 8,
-    textAlign: "center"
+    textAlign: "center",
+    marginBottom: 15,
+  },
+
+  fieldError:{
+    color: COLORS.error,
+    fontSize: 14,
+    marginTop:"-3%",
+    marginBottom: 12,
   }
 });
