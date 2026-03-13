@@ -5,15 +5,21 @@ import Button from "../../components/Button";
 import { LANGUAGES } from "../../data/languages";
 import ProgressBar from "../../components/ProgressBar";
 
+
 export default function LanguageSelectionScreen({ navigation }) {
   const [selectedId, setSelectedId] = useState(null);
+  const { user } = useUser();
 
-  const handleContinue = () => {
+  const handleContinue = async () => {
     const selectedLanguage = LANGUAGES.find(l => l.id === selectedId);
 
-    navigation.navigate("LevelSelection", {
-      language: selectedLanguage.label
+    await user.update({
+      unsafeMetadata: {
+        language: selectedLanguage.label
+      }
     });
+
+    navigation.navigate("LevelSelection");
   };
 
   const renderItem = ({ item }) => {

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useUser } from "@clerk/clerk-expo";
 import { COLORS } from "../../constants/colors";
 import Button from "../../components/Button";
 import { LEVELS } from "../../data/levelsData";
@@ -10,14 +11,25 @@ export default function LevelSelectionScreen({ navigation, route }) {
   const { language } = route.params || { language: "Unknown" };
   const [selectedLevel, setSelectedLevel] = useState(null);
 
-  const handleNext = () => {
-    if (selectedLevel) {
+  const handleNext = async () => {
+    if (!selectedLevel) return;
+
+    try {
+      await user.update({
+        unsafeMetadata: {
+          ...user.unsafeMetadata,
+          level: selectedLevel,
+        },
+      });
+
       navigation.navigate("GoalSelection", {
         language: language,
         level: selectedLevel,
       });
+    } catch (err) {
+      console.log("Error saving level:", err);
     }
-  };
+};
 
   const renderItem = ({ item }) => {
     const isSelected = selectedLevel === item.id;
